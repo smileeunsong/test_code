@@ -2,6 +2,10 @@ const { add, subtract, multiple, divide } = require('./calculate');
 
 describe('calculate unit test', () => {
   describe('add', () => {
+    test('a와 b 중 하나라도 숫자가 아닐 경우에는 NaN을 반환합니다.', () => {
+      expect(add('a', 'b')).toBe(NaN);
+    });
+
     test('add(1,2)는 3이 되어야합니다.', () => {
       expect(add(1, 2)).toBe(3);
     });
@@ -20,18 +24,34 @@ describe('calculate unit test', () => {
   });
 
   describe('subtract', () => {
+    test('a와 b 중 하나라도 숫자가 아닐 경우에는 NaN을 반환합니다.', () => {
+      expect(subtract('a', 'b')).toBe(NaN);
+    });
+
     test('subtract(2,1)는 1이 되어야합니다.', () => {
       expect(subtract(2, 1)).toBe(1);
     });
   });
 
   describe('multiple', () => {
+    test('a와 b 중 하나라도 숫자가 아닐 경우에는 NaN을 반환합니다.', () => {
+      expect(multiple('a', 'b')).toBe(NaN);
+    });
+
     test('multiple(3, 4)는 12가 되어야합니다.', () => {
       expect(multiple(3, 4)).toBe(12);
     });
   });
 
   describe('divide', () => {
+    test('a와 b 중 하나라도 숫자가 아닐 경우에는 NaN을 반환합니다.', () => {
+      expect(divide('a', 'b')).toBe(NaN);
+    });
+
+    test('b가 0일 때는 Infinity를 반환합니다.', () => {
+      expect(divide(1, 0)).toBe(Infinity);
+    });
+
     test('divide(10,2)는 5가 되어야합니다.', () => {
       expect(divide(10, 2)).toBe(5);
     });
