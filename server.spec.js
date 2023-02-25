@@ -33,4 +33,20 @@ describe('E2E Test', () => {
 
     expect(resBody.result).toBe(4);
   });
+
+  test('사용자가 a에 10, b에 3을 담아 multiple로 get 요청합니다.', async () => {
+    const resBody = await fetch(
+      'http://localhost:10010/multiple?a=10&b=3'
+    ).then((res) => res.json());
+
+    expect(resBody.result).toBe(30);
+  });
+
+  test('사용자가 a에 15, b에 3을 담아 divide로 get 요청합니다.', async () => {
+    const resBody = await fetch('http://localhost:10010/divide?a=15&b=3').then(
+      (res) => res.json()
+    );
+
+    expect(resBody.result).toBe(5);
+  });
 });
